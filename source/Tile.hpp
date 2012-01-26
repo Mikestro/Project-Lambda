@@ -6,12 +6,13 @@
 
 #define TILE_WIDTH 32
 #define TILE_HEIGHT 32
-#define TILES_PER_SCREEN 32
+#define TILES_PER_SCREEN 300
 #define TOTAL_TILES 5
 #include "Screen.hpp"
 #include "Sprite.hpp"
 #include "Entity.hpp"
 #include <fstream>
+#include <iostream>
 
 const int BLACK = 0;
 const int GRASS = 1;

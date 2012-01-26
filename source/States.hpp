@@ -50,12 +50,14 @@ class State{
 class TestRoom : public State{
 	private:
 		vector<Tile*> vTiles;
+		textBox *msg;
 	public:
 		TestRoom(gameVars);
 		~TestRoom();
 		void tick();
 		void render();
 		void move();
+		void rLoad();
 	
 };
 

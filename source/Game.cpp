@@ -130,10 +130,18 @@ void Game::loadFiles(){
 	sprites[1]->clips[1].y = 0;
 	sprites[1]->clips[1].w = 32;
 	sprites[1]->clips[1].h = 32;
-	sprites[1]->clips[2].x = 64+32;
+	sprites[1]->clips[2].x = 64;
 	sprites[1]->clips[2].y = 0;
 	sprites[1]->clips[2].w = 32;
 	sprites[1]->clips[2].h = 32;
+	sprites[1]->clips[3].x = 96;
+	sprites[1]->clips[3].y = 0;
+	sprites[1]->clips[3].w = 32;
+	sprites[1]->clips[3].h = 32;
+	sprites[1]->clips[4].x = 128;
+	sprites[1]->clips[4].y = 0;
+	sprites[1]->clips[4].w = 32;
+	sprites[1]->clips[4].h = 32;
 	
 	sprites.push_back(new Sprite("resource/blue-message.png"));
 	sprites.push_back(new Sprite("resource/blue-purple-buttons.png"));
