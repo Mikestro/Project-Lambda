@@ -1,0 +1,35 @@
+﻿#ifndef TILE_HPP
+#define TILE_HPP
+
+#include "Screen.hpp"
+#include "Sprite.hpp"
+
+#define TILE_WIDTH 32
+#define TILE_HEIGHT 32
+#define TILES_PER_SCREEN 32
+#define TOTAL_TILES 5
+#include "Screen.hpp"
+#include "Sprite.hpp"
+#include "Entity.hpp"
+#include <fstream>
+
+const int BLACK = 0;
+const int GRASS = 1;
+const int BLUE = 2;
+const int STONE = 3;
+const int DIRT = 4;
+
+class Tile : public Entity{
+	private:
+		int type;
+		
+	public:
+		Tile(Screen*,Sprite*,int,int,int);
+		
+		void tick();
+		void move();
+		void render();
+		
+};
+
+#endif

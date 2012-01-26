@@ -7,6 +7,7 @@
 #include "Entity.hpp"
 #include "Player.hpp"
 #include "GUI.hpp"
+#include "Tile.hpp"
 
 #include <vector>
 using std::vector;
@@ -47,8 +48,11 @@ class State{
 };
 
 class TestRoom : public State{
+	private:
+		vector<Tile*> vTiles;
 	public:
 		TestRoom(gameVars);
+		~TestRoom();
 		void tick();
 		void render();
 		void move();

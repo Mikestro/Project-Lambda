@@ -2,7 +2,7 @@ CC=g++ -std=c++0x
 LINKS= -lmingw32 -lSDLmain -lSDL -lSDL_image -lSDL_ttf
 SOURCE=source
 BUILD=build
-ALLOBJ=$(BUILD)/Game.o $(BUILD)/Screen.o $(BUILD)/Input.o $(BUILD)/Sprite.o $(BUILD)/Entity.o $(BUILD)/Player.o $(BUILD)/Debug.o $(BUILD)/GUI.o $(BUILD)/States.o
+ALLOBJ=$(BUILD)/Game.o $(BUILD)/Screen.o $(BUILD)/Input.o $(BUILD)/Sprite.o $(BUILD)/Entity.o $(BUILD)/Player.o $(BUILD)/Debug.o $(BUILD)/GUI.o $(BUILD)/States.o $(BUILD)/Tile.o
 
 game : $(ALLOBJ)
 	$(CC) -o game $(ALLOBJ) $(LINKS)
@@ -33,3 +33,6 @@ $(BUILD)/GUI.o : $(SOURCE)/GUI.cpp
 	
 $(BUILD)/States.o : $(SOURCE)/States.cpp
 	$(CC) -o $(BUILD)/States.o -c $(SOURCE)/States.cpp
+	
+$(BUILD)/Tile.o : $(SOURCE)/Tile.cpp
+	$(CC) -o $(BUILD)/Tile.o -c $(SOURCE)/Tile.cpp

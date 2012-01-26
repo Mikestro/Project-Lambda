@@ -121,6 +121,20 @@ void Game::draw(){
 void Game::loadFiles(){
 	
 	sprites.push_back(new Sprite("resource/red.png"));
+	sprites.push_back(new Sprite("resource/tileset.png"));
+	sprites[1]->clips[0].x = 0;
+	sprites[1]->clips[0].y = 0;
+	sprites[1]->clips[0].h = 32;
+	sprites[1]->clips[0].w = 32;
+	sprites[1]->clips[1].x = 32;
+	sprites[1]->clips[1].y = 0;
+	sprites[1]->clips[1].w = 32;
+	sprites[1]->clips[1].h = 32;
+	sprites[1]->clips[2].x = 64+32;
+	sprites[1]->clips[2].y = 0;
+	sprites[1]->clips[2].w = 32;
+	sprites[1]->clips[2].h = 32;
+	
 	sprites.push_back(new Sprite("resource/blue-message.png"));
 	sprites.push_back(new Sprite("resource/blue-purple-buttons.png"));
 	entities.push_back(new Player(input,screen,sprites[0]));
