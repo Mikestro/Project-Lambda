@@ -10,48 +10,49 @@
 
 #include <vector>
 using std::vector;
+class State;
 
-struct envVars{
-	Screen *screen;
-	Input *input;
-	vector<Sprite*> sprites;
+struct gameVars{
+	Screen* screen;
+	vector<Sprite*> *vSprites;
+	vector<Entity*> *vEntities;
 	TTF_Font *font;
-	vector<Entity*> entities;
+	Input *input;
+	State** statePointer;
 };
 
 class State{
 	protected:
-		envVars *currentEnvironmentVariables;
-		State *lastState, *nextState;
-	public:
-		State(State*,envVars*);
+		State *prevState, *nextState;
+		State **statePointer;
 		
-		void startState(State*);
-		virtual void run() = 0;
-		virtual void tick() = 0;
+		Screen* screen;
+		vector<Sprite*> *vSprites;
+		vector<Entity*> *vEntities;
+		TTF_Font *font;
+		Input *input;
+	public:
+		State(gameVars);
+		State(gameVars,State*);
 		
 		void setNextState(State*);
+		void setPrevState(State*);
+		
 		void startNextState();
+		void startPrevState();
 		
-		void runLastState();
-};
-
-class TitleScreen : public State{
-	public:
-		TitleScreen(State*,envVars*);
-		void run();
-		
-		void tick();
-		void draw();
+		virtual void tick() = 0;
+		virtual void render() = 0;
+		virtual void move() = 0;
 };
 
 class TestRoom : public State{
 	public:
-		TestRoom(State*,envVars*);
-		void run();
-		
+		TestRoom(gameVars);
 		void tick();
-		void draw();
+		void render();
+		void move();
+	
 };
 
 #endif

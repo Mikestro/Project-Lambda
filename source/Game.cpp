@@ -22,7 +22,7 @@ Game::~Game(){
 
 void Game::run(){
 	Entity *mine;
-	//mine = new Player(input,"resource/red.png",screen);
+	mine = new Player(input,screen,sprites[0]);
 	
 	//Sprite *message = new Sprite("resource/blue-message.png");
 	GUI *gui = new GUI(screen);
@@ -39,7 +39,7 @@ void Game::run(){
 	while (running){
 		int timer = SDL_GetTicks();
 		while(SDL_PollEvent(&input->events)){
-			//mine->tick();
+			mine->tick();
 		
 			if((input->events.type == SDL_KEYDOWN)){
 				switch(input->events.key.keysym.sym){
@@ -52,9 +52,9 @@ void Game::run(){
 				running = false;
 		}
 		
-		//mine->move();
+		mine->move();
 		//test->render();
-		//mine->render();
+		mine->render();
 		
 		if(showmessage){
 			//screen->draw(message,0,480-180,NULL);
@@ -82,23 +82,31 @@ void Game::run(){
 }
 
 void Game::startStateMachine(){
-	envVars *vars = new envVars;
-	vars->screen = this->screen;
-	vars->input = this->input;
-	vars->font = this->font;
-	vars->sprites = this->sprites;
+	bool running = true;
+	State *currentState;
+	sprites.push_back(new Sprite("resource/red.png"));
+	entities.push_back(new Player(input,screen,sprites[0]));
+	gameVars gvars = {screen,&sprites,&entities,font,input};
+	currentState = new TestRoom(gvars);
 	
-	State *current;
-	current = new TitleScreen(NULL,vars);
-	bool runnning=true;
-	while(running){
+	while (running){
+		int timer = SDL_GetTicks();
+		while(SDL_PollEvent(&input->events)){
+			currentState->tick();
+			
+			if(input->events.type == SDL_QUIT)
+				running = false;
+		}
 		
-		current->run();
-	
+		currentState->move();
+		currentState->render();
+		screen->refresh();
+		if((SDL_GetTicks()-timer) < 1000 / 30 ){
+			SDL_Delay((1000/30)-(SDL_GetTicks()-timer));
+		}
 	}
 	
-	
-	delete current;
+	delete currentState;
 }
 
 void Game::update(){

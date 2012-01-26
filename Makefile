@@ -1,5 +1,5 @@
-CC=g++
-LINKS=-lmingw32 -lSDLmain -lSDL -lSDL_image -lSDL_ttf
+CC=g++ -std=c++0x
+LINKS= -lmingw32 -lSDLmain -lSDL -lSDL_image -lSDL_ttf
 SOURCE=source
 BUILD=build
 ALLOBJ=$(BUILD)/Game.o $(BUILD)/Screen.o $(BUILD)/Input.o $(BUILD)/Sprite.o $(BUILD)/Entity.o $(BUILD)/Player.o $(BUILD)/Debug.o $(BUILD)/GUI.o $(BUILD)/States.o
