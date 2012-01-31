@@ -3,9 +3,9 @@
 Player::Player(Input* i, Screen* s,Sprite* spr) : Entity(s,spr){
 	input = i;
 	//sprite = new Sprite("resource/player.png");
-	box.w = 32;
-	box.h = 32;
-	speed = 8;
+//	box.w = 32;
+	//box.h = 32;
+	//speed = 8;
 }
 
 Player::~Player(){
@@ -14,19 +14,21 @@ Player::~Player(){
 
 void Player::tick(){
 	handleInput();
+
+	//std::cout << "Box.w of player is " << box.w << std::endl;
 }
 
-void Player::move(){
+/*void Player::move(vector<Tile*> *tiles){
 	box.x += xvel;
 	
-	if((box.x < 0)||(box.x+box.w > 640))
-		box.x -=xvel;
+	if((box.x < 0)||(box.x+box.w > 640)*||(*tiles)[6]->isCollidingWith(this)*)
+//		box.x -=xvel;
 		
-	box.y += yvel;
+//	box.y += yvel;
 	
-	if((box.y < 0)||(box.y+box.h > 480))
-		box.y -= yvel;
-}
+//	if((box.y < 0)||(box.y+box.h > 480)&&((*tiles)[6]->isCollidingWith(this)))
+//		box.y -= yvel;
+//}*/
 
 // void Player::render(){
 	

@@ -39,8 +39,9 @@ void State::startPrevState(){
 TestRoom::TestRoom(gameVars v) : State(v){
 	rLoad();
 	msg = new textBox((*vSprites)[2],input,screen,font);
-	msg->setText(0,"Houston,");
-	msg->setText(1,"We have tilemap.");
+	msg->setText(0,"I have no idea why this isn't working..");
+	//msg->setText(1,"Handle proper collision between the player,");
+	//msg->setText(2,"");
 }
 
 void TestRoom::rLoad(){
@@ -66,33 +67,35 @@ void TestRoom::rLoad(){
 		}
 	}
 	
-	std::cout << vTiles.max_size() << std::endl;
-	std::cout << vTiles.size() << std::endl;
+//	std::cout << vTiles.max_size() << std::endl;
+//	std::cout << vTiles.size() << std::endl;
 	
 	map.close();
 }
 
 TestRoom::~TestRoom(){
 	vTiles.clear();
+	delete msg;
 }
 
 void TestRoom::tick(){
 
 	(*vEntities)[0]->tick();
 	
-	if(input->events.type == SDLK_DOWN){
-		switch(input->events.key.keysym.sym){
-			case key_up: rLoad(); std::cout << "Reloading map...\n"; break;
-			default: break;
-		}
-	}
-	
 	rLoad();
+
 	
 }
 
 void TestRoom::move(){
-	(*vEntities)[0]->move();
+	bool move = true;
+//	for(int i = 0; i < vTiles.size(); i++){		
+//		if(vTiles[i]->gType() == GRASS){
+//
+//		}
+//	}
+//	:
+	(*vEntities)[0]->move(&vTiles);
 }
 
 void TestRoom::render(){
@@ -102,5 +105,6 @@ void TestRoom::render(){
 	}
 	
 	(*vEntities)[0]->render();
-	msg->render();
+
+	//msg->render();
 }

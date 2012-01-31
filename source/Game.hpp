@@ -20,14 +20,11 @@ class Game{
 		Game();
 		~Game();
 		
-		void run();
 		
 		void startStateMachine();
 		
 		void loadFiles();
 		
-		void update();
-		void draw();
 };
 
 

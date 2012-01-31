@@ -16,20 +16,22 @@
 
 const int BLACK = 0;
 const int GRASS = 1;
-const int BLUE = 2;
+const int WATER= 2;
 const int STONE = 3;
 const int DIRT = 4;
 
 class Tile : public Entity{
 	private:
-		int type;
+		int type, solid;
 		
 	public:
 		Tile(Screen*,Sprite*,int,int,int);
 		
 		void tick();
-		void move();
+		//void move();
 		void render();
+
+		int gType();
 		
 };
 

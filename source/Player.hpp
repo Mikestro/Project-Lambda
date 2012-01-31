@@ -3,16 +3,18 @@
 
 #include "Entity.hpp"
 #include "Input.hpp"
+#include <vector>
+using std::vector;
 
 class Player : public Entity{
 	private:
-		int speed;
+		//int speed;
 	public:
 		Input *input;
 		Player(Input*,Screen*,Sprite*);
 		~Player();
 		void tick();
-		void move();
+		//void move(vector<Tile*>*);
 		// void render();
 		
 		void handleInput();

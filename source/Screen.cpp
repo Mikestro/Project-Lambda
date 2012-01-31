@@ -4,6 +4,7 @@ Screen::Screen(){
 	SDL_Init(SDL_INIT_EVERYTHING);
 	TTF_Init();
 	display = SDL_SetVideoMode(640,480,32,SDL_HWSURFACE|SDL_DOUBLEBUF);
+	SDL_WM_SetCaption("Project Lambda",NULL);
 }
 
 Screen::~Screen(){
