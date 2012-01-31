@@ -1,7 +1,10 @@
 ﻿#include "Sprite.hpp"
 
 Sprite::Sprite(string filename){
-	surf = IMG_Load(filename.c_str());
+	
+	SDL_Surface *TempSurf = IMG_Load(filename.c_str());
+	surf = SDL_DisplayFormat(TempSurf);
+	SDL_FreeSurface(TempSurf);
 	
 }
 
