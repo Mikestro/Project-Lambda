@@ -1,6 +1,6 @@
 ﻿#include "Player.hpp"
 
-Player::Player(Input* i, Screen* s,Sprite* spr) : Entity(s,spr){
+Player::Player(Input* i, Screen* s,int spr) : Entity(s,spr){
 	input = i;
 	//sprite = new Sprite("resource/player.png");
 //	box.w = 32;
@@ -9,7 +9,7 @@ Player::Player(Input* i, Screen* s,Sprite* spr) : Entity(s,spr){
 }
 
 Player::~Player(){
-	delete sprite;
+//	delete sprite;
 }
 
 void Player::tick(){
@@ -18,21 +18,21 @@ void Player::tick(){
 	//std::cout << "Box.w of player is " << box.w << std::endl;
 }
 
-/*void Player::move(vector<Tile*> *tiles){
-	box.x += xvel;
+//void Player::move(){
+	//box.x += xvel;
 	
-	if((box.x < 0)||(box.x+box.w > 640)*||(*tiles)[6]->isCollidingWith(this)*)
-//		box.x -=xvel;
+	////if((box.x < 0)||(box.x+box.w > 640)*||(*tiles)[6]->isCollidingWith(this)*)
+////		box.x -=xvel;
 		
-//	box.y += yvel;
+	//box.y += yvel;
 	
-//	if((box.y < 0)||(box.y+box.h > 480)&&((*tiles)[6]->isCollidingWith(this)))
-//		box.y -= yvel;
-//}*/
+////	if((box.y < 0)||(box.y+box.h > 480)&&((*tiles)[6]->isCollidingWith(this)))
+////		box.y -= yvel;
+////}*/
 
-// void Player::render(){
+//// void Player::render(){
 	
-// }
+//}
 
 void Player::handleInput(){
 	if(input->events.type == SDL_KEYDOWN){

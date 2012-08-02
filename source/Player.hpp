@@ -11,10 +11,10 @@ class Player : public Entity{
 		//int speed;
 	public:
 		Input *input;
-		Player(Input*,Screen*,Sprite*);
+		Player(Input*,Screen*,int);
 		~Player();
 		void tick();
-		//void move(vector<Tile*>*);
+		//void move();
 		// void render();
 		
 		void handleInput();

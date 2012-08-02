@@ -3,7 +3,7 @@ LINKS= -lSDL -lSDL_image -lSDL_ttf
 SOURCE=source
 BUILD=obj
 #ALLOBJ=$(BUILD)/Game.o $(BUILD)/Screen.o $(BUILD)/Input.o $(BUILD)/Sprite.o $(BUILD)/Entity.o $(BUILD)/Player.o $(BUILD)/Debug.o $(BUILD)/GUI.o $(BUILD)/States.o $(BUILD)/Tile.o
-ALLOBJ=$(BUILD)/Game.o $(BUILD)/Screen.o $(BUILD)/Input.o $(BUILD)/Sprite.o $(BUILD)/Entity.o $(BUILD)/ResourceManager.o $(BUILD)/Globals.o
+ALLOBJ=$(BUILD)/Game.o $(BUILD)/Screen.o $(BUILD)/Input.o $(BUILD)/Sprite.o $(BUILD)/Entity.o $(BUILD)/Player.o  $(BUILD)/ResourceManager.o $(BUILD)/Globals.o
 
 game : $(ALLOBJ)
 	$(CC) -o game $(ALLOBJ) $(LINKS)

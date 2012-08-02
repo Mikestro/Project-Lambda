@@ -56,7 +56,7 @@ void Entity::move(){
 
 void Entity::render(){
 	//screen->draw(sprite->surf,box.x,box.y,NULL);
-	screen->draw(rMan.getSpriteByID(spriteID)->surf,0,0,NULL);
+	screen->draw(rMan.getSpriteByID(spriteID)->surf,box.x,box.y,NULL);
 	//&sprite->clips[c]
 }
 

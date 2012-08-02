@@ -11,12 +11,12 @@ Game::Game(){
 
 	screen = new Screen;
 	input = new Input;
-	TTF_Init();
+	//TTF_Init();
 }
 
 Game::~Game(){
-	TTF_CloseFont(font);
-	TTF_Quit();
+	//TTF_CloseFont(font);
+	//TTF_Quit();
 	//sprites.clear();
 	//entities.clear();
 	
@@ -93,13 +93,13 @@ Game::~Game(){
 void Game::run(){
 	//int pspr = rMan.loadSprite(new Sprite("resource/red.png"));
 	//int pspr2 = rMan.loadSprite(new Sprite("resource/blue-message.png"));
-	Entity *t = new Entity( screen, rMan.loadSprite(new Sprite("resource/red.png")));
+	Entity *t = new Player(input ,screen, rMan.loadSprite(new Sprite("resource/red.png")));
 	running = true;
 	while(running){
 		int timer = SDL_GetTicks();
 		while(SDL_PollEvent(&input->events)){
 			//currentState->tick();
-			
+			t->tick();	
 			if(input->events.type == SDL_QUIT)
 				running = false;
 		}
@@ -108,6 +108,7 @@ void Game::run(){
 		//currentState->render();
 		//screen->draw(rMan.getSpriteByID(pspr2)->surf,0,0,NULL);
 		//screen->draw(rMan.getSpriteByID(pspr)->surf,0,0,NULL);
+		t->move();
 		t->render();
 		screen->refresh();
 		if((SDL_GetTicks()-timer) < 1000 / 30 ){
@@ -123,6 +124,8 @@ int main(int argc, char *args[]){
 	//g->startStateMachine();
 	
 	g->run();
-	
+
+
+	delete g;
 	return 0;
 }
