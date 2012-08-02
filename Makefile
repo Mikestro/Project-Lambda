@@ -2,7 +2,8 @@ CC=g++ -g -O0 -std=c++0x
 LINKS= -lSDL -lSDL_image -lSDL_ttf
 SOURCE=source
 BUILD=obj
-ALLOBJ=$(BUILD)/Game.o $(BUILD)/Screen.o $(BUILD)/Input.o $(BUILD)/Sprite.o $(BUILD)/Entity.o $(BUILD)/Player.o $(BUILD)/Debug.o $(BUILD)/GUI.o $(BUILD)/States.o $(BUILD)/Tile.o
+#ALLOBJ=$(BUILD)/Game.o $(BUILD)/Screen.o $(BUILD)/Input.o $(BUILD)/Sprite.o $(BUILD)/Entity.o $(BUILD)/Player.o $(BUILD)/Debug.o $(BUILD)/GUI.o $(BUILD)/States.o $(BUILD)/Tile.o
+ALLOBJ=$(BUILD)/Game.o $(BUILD)/Screen.o $(BUILD)/Input.o $(BUILD)/Sprite.o $(BUILD)/Entity.o $(BUILD)/Player.o $(BUILD)/Tile.o $(BUILD)/ResourceManager.o
 
 game : $(ALLOBJ)
 	$(CC) -o game $(ALLOBJ) $(LINKS)
@@ -25,6 +26,9 @@ $(BUILD)/Entity.o : $(SOURCE)/Entity.cpp $(BUILD)/Sprite.o
 $(BUILD)/Player.o : $(SOURCE)/Player.cpp $(BUILD)/Entity.o
 	$(CC) -o $(BUILD)/Player.o -c $(SOURCE)/Player.cpp
 	
+$(BUILD)/ResourceManager.o : $(SOURCE)/ResourceManager.cpp $(BUILD)/Sprite.o
+	$(CC) -o $(BUILD)/ResourceManager.o -c $(SOURCE)/ResourceManager.cpp
+
 $(BUILD)/Debug.o : $(SOURCE)/Debug.cpp
 	$(CC) -o $(BUILD)/Debug.o -c $(SOURCE)/Debug.cpp
 	
