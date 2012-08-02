@@ -8,7 +8,7 @@ ResourceManager::~ResourceManager(){
 int ResourceManager::loadSprite(Sprite* s){
 	if( s != NULL){
 		vSprites.push_back(s);
-		return vSprites.size() - 1;
+		return vSprites.size()==1?0:vSprites.size() - 1;
 	} else {
 		return -1;
 	}

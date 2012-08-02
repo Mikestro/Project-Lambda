@@ -3,7 +3,7 @@ LINKS= -lSDL -lSDL_image -lSDL_ttf
 SOURCE=source
 BUILD=obj
 #ALLOBJ=$(BUILD)/Game.o $(BUILD)/Screen.o $(BUILD)/Input.o $(BUILD)/Sprite.o $(BUILD)/Entity.o $(BUILD)/Player.o $(BUILD)/Debug.o $(BUILD)/GUI.o $(BUILD)/States.o $(BUILD)/Tile.o
-ALLOBJ=$(BUILD)/Game.o $(BUILD)/Screen.o $(BUILD)/Input.o $(BUILD)/Sprite.o $(BUILD)/Entity.o $(BUILD)/Player.o $(BUILD)/Tile.o $(BUILD)/ResourceManager.o
+ALLOBJ=$(BUILD)/Game.o $(BUILD)/Screen.o $(BUILD)/Input.o $(BUILD)/Sprite.o $(BUILD)/Entity.o $(BUILD)/ResourceManager.o $(BUILD)/Globals.o
 
 game : $(ALLOBJ)
 	$(CC) -o game $(ALLOBJ) $(LINKS)
@@ -28,6 +28,9 @@ $(BUILD)/Player.o : $(SOURCE)/Player.cpp $(BUILD)/Entity.o
 	
 $(BUILD)/ResourceManager.o : $(SOURCE)/ResourceManager.cpp $(BUILD)/Sprite.o
 	$(CC) -o $(BUILD)/ResourceManager.o -c $(SOURCE)/ResourceManager.cpp
+
+$(BUILD)/Globals.o : $(SOURCE)/Globals.cpp $(BUILD)/ResourceManager.o
+	$(CC) -o $(BUILD)/Globals.o -c $(SOURCE)/Globals.cpp
 
 $(BUILD)/Debug.o : $(SOURCE)/Debug.cpp
 	$(CC) -o $(BUILD)/Debug.o -c $(SOURCE)/Debug.cpp

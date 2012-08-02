@@ -4,7 +4,7 @@
 #include "SDL/SDL.h"
 #include "Sprite.hpp"
 #include "Screen.hpp"
-class Tile;
+#include "Globals.hpp"
 #include <vector>
 using std::vector;
 //#include "Debug.hpp"
@@ -12,15 +12,16 @@ using std::vector;
 class Entity{
 	protected:
 		SDL_Rect box;
+		int spriteID;
 		int xvel,yvel, c, speed;
 	public: 
-		Sprite *sprite;
+		//Sprite *sprite;
 		Screen *screen;
-		Entity(Screen*,Sprite*);
+		Entity(Screen*,int);
 		~Entity();
 		
 		virtual void tick();
-		virtual void move(vector<Tile*>*);
+		virtual void move();
 		virtual void render();
 
 		void transform(int,int);

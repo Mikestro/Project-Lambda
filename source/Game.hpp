@@ -6,7 +6,7 @@
 #include "Sprite.hpp"
 #include "Entity.hpp"
 #include "Player.hpp"
-#include "ResourceManager.hpp"
+//#include "ResourceManager.hpp"
 //#include "States.hpp"
 
 class Game{
@@ -15,7 +15,7 @@ class Game{
 		Screen *screen;
 		Input *input;
 		TTF_Font *font;
-		ResourceManager rMan;
+		//ResourceManager rMan;
 		//vector<Sprite*> sprites;
 		//vector<Entity*> entities;
 	public:

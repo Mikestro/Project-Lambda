@@ -1,5 +1,7 @@
 ﻿#include "Game.hpp"
 #include "GUI.hpp"
+#include "ResourceManager.hpp"
+#include "Globals.hpp"
 
 bool useHD = false;
 
@@ -89,7 +91,9 @@ Game::~Game(){
 //}
 
 void Game::run(){
-	int pspr = rMan.loadSprite(new Sprite("resource/red.png"));
+	//int pspr = rMan.loadSprite(new Sprite("resource/red.png"));
+	//int pspr2 = rMan.loadSprite(new Sprite("resource/blue-message.png"));
+	Entity *t = new Entity( screen, rMan.loadSprite(new Sprite("resource/red.png")));
 	running = true;
 	while(running){
 		int timer = SDL_GetTicks();
@@ -102,7 +106,9 @@ void Game::run(){
 		
 		//currentState->move();
 		//currentState->render();
-		screen->draw(rMan.getSpriteByID(pspr)->surf,0,0,NULL);
+		//screen->draw(rMan.getSpriteByID(pspr2)->surf,0,0,NULL);
+		//screen->draw(rMan.getSpriteByID(pspr)->surf,0,0,NULL);
+		t->render();
 		screen->refresh();
 		if((SDL_GetTicks()-timer) < 1000 / 30 ){
 			SDL_Delay((1000/30)-(SDL_GetTicks()-timer));
